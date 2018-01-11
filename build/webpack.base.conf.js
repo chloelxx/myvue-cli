@@ -20,6 +20,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
+      //配置文件路径的别名
     alias: {
       'src': resolve('src'),
       'api':resolve('src/api'),

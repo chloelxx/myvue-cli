@@ -44,12 +44,13 @@ var webpackConfig = merge(baseWebpackConfig, {
 			compress: {
 				warnings: false
 			},
-			sourceMap: true
+			sourceMap: true  //如果有sourceMap这个属性会使编译变慢
 		}),*/
 		// extract css into its own file
         new UglifyJsPlugin({
             cache:findCacheDir({name:"myvue-cli"}),
-            parallel:Math.max(os.cpus().length - 1, 1)
+            parallel:Math.max(os.cpus().length - 1, 1),  //parallel使用多进程打包，提高编译速度
+            //sourceMap:true,//如果有sourceMap这个属性为true会使编译变慢
         }),
 		new ExtractTextPlugin({
 			filename: utils.assetsPath('css/[name].[contenthash].css')
